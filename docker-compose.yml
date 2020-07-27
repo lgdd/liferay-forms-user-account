@@ -1,0 +1,14 @@
+version: '2.1'
+services:
+  liferay:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 8080:8080
+      - 8000:8000
+      - 11311:11311
+    command: jpda run
+    volumes:
+      - ./bundles/osgi/modules:/home/liferay/bundles/osgi/modules
+      - ./bundles/deploy:/home/liferay/bundles/deploy
